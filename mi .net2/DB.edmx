@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище MediTrackModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="MName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolesUser">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uchet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ObjectName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Descriptions" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Price" Type="float" Nullable="false" />
+          <Property Name="UnitId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="int" Nullable="false" />
+          <Property Name="UnitName" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="LoginUser" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="PassUser" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Uchet__UnitId__4AB81AF0">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserData__RoleId__45F365D3">
+          <End Role="RolesUser" Type="Self.RolesUser" Multiplicity="1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolesUser">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище MediTrackModelContainer">
+          <EntitySet Name="ambulance" EntityType="Self.ambulance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolesUser" EntityType="Self.RolesUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uchet" EntityType="Self.Uchet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Uchet__UnitId__4AB81AF0" Association="Self.FK__Uchet__UnitId__4AB81AF0">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserData__RoleId__45F365D3" Association="Self.FK__UserData__RoleId__45F365D3">
+            <End Role="RolesUser" EntitySet="RolesUser" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MediTrackModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ambulance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RolesUser">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserData" Relationship="Self.FK__UserData__RoleId__45F365D3" FromRole="RolesUser" ToRole="UserData" />
+        </EntityType>
+        <EntityType Name="Uchet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ObjectName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK__Uchet__UnitId__4AB81AF0" FromRole="Uchet" ToRole="Unit" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="UnitId" Type="Int32" Nullable="false" />
+          <Property Name="UnitName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Uchet" Relationship="Self.FK__Uchet__UnitId__4AB81AF0" FromRole="Unit" ToRole="Uchet" />
+        </EntityType>
+        <EntityType Name="UserData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="LoginUser" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PassUser" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RolesUser" Relationship="Self.FK__UserData__RoleId__45F365D3" FromRole="UserData" ToRole="RolesUser" />
+        </EntityType>
+        <Association Name="FK__UserData__RoleId__45F365D3">
+          <End Role="RolesUser" Type="Self.RolesUser" Multiplicity="1" />
+          <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RolesUser">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserData">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Uchet__UnitId__4AB81AF0">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+          <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="UnitId" />
+            </Principal>
+            <Dependent Role="Uchet">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MediTrackEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ambulance" EntityType="Self.ambulance" />
+          <EntitySet Name="RolesUser" EntityType="Self.RolesUser" />
+          <EntitySet Name="Uchet" EntityType="Self.Uchet" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" />
+          <EntitySet Name="UserData" EntityType="Self.UserData" />
+          <AssociationSet Name="FK__UserData__RoleId__45F365D3" Association="Self.FK__UserData__RoleId__45F365D3">
+            <End Role="RolesUser" EntitySet="RolesUser" />
+            <End Role="UserData" EntitySet="UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Uchet__UnitId__4AB81AF0" Association="Self.FK__Uchet__UnitId__4AB81AF0">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="Uchet" EntitySet="Uchet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MediTrackModelContainer" CdmEntityContainer="MediTrackEntities">
+          <EntitySetMapping Name="ambulance">
+            <EntityTypeMapping TypeName="MediTrackModel.ambulance">
+              <MappingFragment StoreEntitySet="ambulance">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="MName" ColumnName="MName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolesUser">
+            <EntityTypeMapping TypeName="MediTrackModel.RolesUser">
+              <MappingFragment StoreEntitySet="RolesUser">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uchet">
+            <EntityTypeMapping TypeName="MediTrackModel.Uchet">
+              <MappingFragment StoreEntitySet="Uchet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unit">
+            <EntityTypeMapping TypeName="MediTrackModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserData">
+            <EntityTypeMapping TypeName="MediTrackModel.UserData">
+              <MappingFragment StoreEntitySet="UserData">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+                <ScalarProperty Name="PassUser" ColumnName="PassUser" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

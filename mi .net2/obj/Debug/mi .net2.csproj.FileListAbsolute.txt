@@ -1,0 +1,31 @@
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi .net2.csproj.AssemblyReference.cache
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi .net2.csproj.SuggestedBindingRedirects.cache
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\Adminpanel.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\autorisation.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\graph.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\helpme.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\MainWindow.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\App.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2_Content.g.cs
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2_MarkupCompile.cache
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2_MarkupCompile.lref
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\mi.net2.exe.config
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\mi.net2.exe
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\mi.net2.pdb
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\EntityFramework.dll
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\EntityFramework.xml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\Adminpanel.baml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\autorisation.baml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\graph.baml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\helpme.baml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\MainWindow.baml
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2.g.resources
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2.Properties.Resources.resources
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi .net2.csproj.GenerateResource.cache
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi .net2.csproj.CoreCompileInputs.cache
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi .net2.csproj.CopyComplete
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2.exe
+C:\Users\ssq\source\repos\mi .net2\mi .net2\obj\Debug\mi.net2.pdb

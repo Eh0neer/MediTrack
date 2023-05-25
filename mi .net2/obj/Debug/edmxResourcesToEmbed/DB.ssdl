@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище MediTrackModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ambulance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="LName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="MName" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolesUser">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Uchet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="ObjectName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="UnitId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="int" Nullable="false" />
+    <Property Name="UnitName" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="LoginUser" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="PassUser" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Uchet__UnitId__4AB81AF0">
+    <End Role="Unit" Type="Self.Unit" Multiplicity="1" />
+    <End Role="Uchet" Type="Self.Uchet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="Uchet">
+        <PropertyRef Name="UnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserData__RoleId__45F365D3">
+    <End Role="RolesUser" Type="Self.RolesUser" Multiplicity="1" />
+    <End Role="UserData" Type="Self.UserData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RolesUser">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="UserData">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище MediTrackModelContainer">
+    <EntitySet Name="ambulance" EntityType="Self.ambulance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolesUser" EntityType="Self.RolesUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Uchet" EntityType="Self.Uchet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserData" EntityType="Self.UserData" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Uchet__UnitId__4AB81AF0" Association="Self.FK__Uchet__UnitId__4AB81AF0">
+      <End Role="Unit" EntitySet="Unit" />
+      <End Role="Uchet" EntitySet="Uchet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserData__RoleId__45F365D3" Association="Self.FK__UserData__RoleId__45F365D3">
+      <End Role="RolesUser" EntitySet="RolesUser" />
+      <End Role="UserData" EntitySet="UserData" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
